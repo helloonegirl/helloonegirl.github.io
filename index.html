@@ -410,6 +410,9 @@ dialog.svc[open]::backdrop { animation: fadeIn .3s ease; }
 .price-row .amt strong { display: block; font: 600 1.3rem/1.1 var(--font-display); font-variation-settings: "SOFT" 100; color: var(--d); font-variant-numeric: tabular-nums; }
 .price-row .amt small { font-size: .8rem; color: var(--cocoa-soft); }
 .perks { display: flex; flex-wrap: wrap; gap: 8px; }
+.nego { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; border-radius: 18px; background: #FCEDEA; border: 1.5px dashed #E2A9A1; font-size: .93rem; }
+.nego .ic { font-size: 20px; color: #C47A72; margin-top: 2px; }
+.nego b { color: #9A524C; }
 .perks span { padding: 7px 13px; border-radius: 999px; background: var(--l); border: 1px solid var(--c); color: var(--d); font-size: .88rem; font-weight: 600; }
 .svc-foot { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; padding: 22px 34px 30px; }
 .svc-foot small { color: var(--cocoa-soft); font-size: .86rem; }
@@ -1175,7 +1178,7 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
 
       <div class="community">
         <svg class="ic"><use href="#daisy"/></svg>
-        <p><b>Community rate:</b> refugee-led and grassroots organisations get 20% off any service. Just mention it when you get in touch.</p>
+        <p><b>Refugee NGO or community group?</b> My prices are open to negotiation. Tell me your budget and we'll find a way to make it work together.</p>
       </div>
     </div>
   </section>
@@ -1317,6 +1320,7 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
         <span><b>Invoices:</b> in RM, or US dollars for international clients</span>
         <span><b>Custom work:</b> ask me for a quote</span>
         <span><b>Tutoring:</b> paid monthly in advance</span>
+        <span><b>Refugee NGOs:</b> prices open to negotiation</span>
       </div>
     </div>
   </section>
@@ -1577,7 +1581,7 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
           ['Full grant proposal', 'Narrative, logframe and budget · 2–3 weeks', 'from RM2,000', 'per proposal'],
           ['Proposal review & edit', 'Up to 10 pages, tracked changes · 2 days', 'RM350', 'per draft'] ] }
       ],
-      perks: ['2 rounds of changes', 'Funder-ready formatting', 'Community rate available']
+      perks: ['2 rounds of changes', 'Funder-ready formatting', 'Flexible for refugee NGOs']
     },
     {
       id: 'reporting', cls: 's-lavender', icon: 'bloom', size: 240, name: 'Donor Reports & M&E', from: 'from RM650',
@@ -1620,7 +1624,7 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
       perks: ['Weekly check-ins', 'Shared progress tracker', 'Final close-out report']
     },
     {
-      id: 'speaking', cls: 's-mint', icon: 'aster', size: 244, name: 'Speaking & Workshops', from: 'from RM450',
+      id: 'speaking', cls: 's-mint', icon: 'aster', size: 244, name: 'Speaking & Workshops', from: 'from RM200',
       eyebrow: 'words that light a spark',
       peek: 'Motivational talks & workshops for refugee programmes.',
       tag: 'Motivational talks and hands-on workshops for refugee programmes, schools, learning centres and youth groups.',
@@ -1638,12 +1642,12 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
       ],
       prices: [
         { group: 'Talks & workshops', rows: [
-          ['Motivational talk', '45–60 minutes, with time for questions', 'RM450', 'per talk'],
-          ['Workshop', '90 minutes on one topic, with activities', 'RM600', 'per session'],
-          ['Half-day workshop', 'About 3 hours, with materials and handouts', 'from RM1,200', 'per half day'],
-          ['Full-day training or series', 'Several topics, or a series for the same group', 'from RM2,200', 'per day'] ] }
+          ['Motivational talk', '45–60 minutes, with time for questions', 'RM200', 'per talk'],
+          ['Workshop', '90 minutes on one topic, with activities', 'RM300', 'per session'],
+          ['Half-day workshop', 'About 3 hours, with materials and handouts', 'from RM600', 'per half day'],
+          ['Full-day training or series', 'Several topics, or a series for the same group', 'from RM1,000', 'per day'] ] }
       ],
-      perks: ['English, Urdu or Hindi', 'Activities & handouts', 'Community rate for refugee-led groups']
+      perks: ['English, Urdu or Hindi', 'Activities & handouts', 'Flexible for refugee NGOs']
     },
     {
       id: 'ops', cls: 's-peach', icon: 'daisy', size: 228, name: 'Operations & Bookkeeping', from: 'from RM50/hr',
@@ -1747,7 +1751,9 @@ dialog.lightbox[open] .lb-inner { animation: popIn .5s var(--spring); }
       return '<div class="price-group"><h4>' + flower('daisy') + esc(g.group) + '</h4>' + g.rows.map(function (r) {
         return '<div class="price-row"><div><b>' + esc(r[0]) + '</b><span class="note">' + esc(money(r[1])) + '</span></div><div class="amt"><strong>' + esc(money(r[2])) + '</strong><small>' + esc(r[3]) + '</small></div></div>';
       }).join('') + '</div>';
-    }).join('') + '<div class="perks">' + s.perks.map(function (p) { return '<span>' + esc(money(p)) + '</span>'; }).join('') + '</div>';
+    }).join('') +
+      (s.id === 'websites' ? '' : '<div class="nego"><svg class="ic" aria-hidden="true"><use href="#heart"/></svg><p><b>Refugee NGO or community group?</b> These prices are open to negotiation. Tell me your budget and we\'ll make it work together.</p></div>') +
+      '<div class="perks">' + s.perks.map(function (p) { return '<span>' + esc(money(p)) + '</span>'; }).join('') + '</div>';
 
     card.innerHTML =
       '<header class="svc-head">' + flower(s.icon, 'big') + flower('sprig', 'sprig') +
