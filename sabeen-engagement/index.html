@@ -301,6 +301,50 @@ h1, h2 { margin: 0; font-weight: 400; }
 .closing { margin-top: 14px; font-size: 1.12rem; max-width: 30ch; text-wrap: balance; }
 .closing b { font-weight: 600; color: var(--rose); }
 
+/* Step 3: guest registration for the hall's security list and parking */
+.sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.reg.rsvp-panel { align-items: stretch; text-align: left; padding: 22px 18px 20px; }
+.reg-head { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.reg-title { font-family: var(--f-script); font-size: clamp(2.1rem, 9vw, 2.6rem); line-height: 1.15; padding-inline: .2em; margin-top: 4px; }
+.reg-note { margin-top: 14px; padding: 12px 14px; border-radius: 14px; background: #FFF8E8; box-shadow: inset 0 0 0 1px var(--gold-line); display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font-size: 1rem; line-height: 1.45; }
+.reg-note svg { width: 22px; height: 22px; margin-top: 3px; }
+.reg-note path { fill: none; stroke: var(--gold-deep); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.reg-note b { display: block; font-family: var(--f-caps); font-weight: 400; text-transform: uppercase; letter-spacing: .18em; font-size: .66rem; color: var(--gold-deep); margin-bottom: 2px; }
+.reg-note strong { font-weight: 600; color: var(--rose); }
+.reg fieldset { border: 0; margin: 22px 0 0; padding: 0; min-width: 0; }
+.reg legend, .reg .lbl { display: block; padding: 0; margin-bottom: 8px; font-family: var(--f-caps); text-transform: uppercase; letter-spacing: .2em; font-size: .68rem; color: var(--gold-deep); }
+.reg .help { font-style: italic; color: var(--ink-soft); font-size: .95rem; line-height: 1.4; margin: -2px 0 10px; }
+.reg .plate-wrap .help { margin: 6px 0 0; }
+.names { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; counter-reset: g; }
+.names li { display: grid; grid-template-columns: 22px minmax(0, 1fr) 34px; align-items: center; gap: 8px; counter-increment: g; }
+.names li::before { content: counter(g); font-weight: 600; color: var(--rose); font-variant-numeric: lining-nums; text-align: center; }
+.txt { width: 100%; min-width: 0; box-sizing: border-box; font-family: var(--f-serif); font-size: 1.15rem; color: var(--ink); background: #FFFFFF; border: 1px solid var(--gold-line); border-radius: 12px; padding: 9px 12px; outline: none; transition: border-color .2s, box-shadow .2s; }
+.txt::placeholder { color: var(--ink-soft); opacity: .6; font-style: italic; }
+.txt:focus { border-color: var(--rose); box-shadow: 0 0 0 3px var(--rose-soft); }
+.txt[aria-invalid="true"] { border-color: #A3434D; }
+.rm { width: 34px; height: 34px; padding: 0; border-radius: 50%; border: 1px solid var(--gold-line); background: #FFFFFF; color: var(--ink-soft); cursor: pointer; display: grid; place-items: center; touch-action: manipulation; }
+.rm svg { width: 12px; height: 12px; }
+.rm:disabled { visibility: hidden; }
+.add { margin-top: 10px; background: #FFFFFF; border: 1px dashed var(--gold); border-radius: 999px; padding: 8px 16px; font-family: var(--f-serif); font-style: italic; font-size: 1.02rem; color: var(--gold-deep); cursor: pointer; touch-action: manipulation; }
+.add[disabled] { opacity: .5; cursor: default; }
+.seg { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.seg input { position: absolute; opacity: 0; pointer-events: none; }
+.seg label { text-align: center; padding: 11px 8px; border-radius: 999px; border: 1px solid var(--gold-line); background: #FFFFFF; cursor: pointer; font-family: var(--f-caps); text-transform: uppercase; letter-spacing: .14em; font-size: .72rem; color: var(--ink); transition: background-color .2s, color .2s, border-color .2s; touch-action: manipulation; }
+.seg input:checked + label { color: #FFFFFF; border-color: #6A4DB5; background: linear-gradient(160deg, #B9A2F0, #8466D0 50%, #5E45A8); text-shadow: 0 1px 1px rgba(60,40,110,.35); }
+.seg input:focus-visible + label, .add:focus-visible, .rm:focus-visible { outline: 2px solid var(--gold-deep); outline-offset: 3px; }
+.plate-wrap { margin-top: 16px; }
+.txt.plate { font-family: var(--f-caps); text-transform: uppercase; letter-spacing: .14em; font-size: 1.05rem; }
+.txt.plate::placeholder { text-transform: none; letter-spacing: 0; font-family: var(--f-serif); }
+.reg .err { color: #A3434D; font-style: italic; font-size: .95rem; line-height: 1.4; margin-top: 6px; }
+.reg-send { margin-top: 24px; }
+.reg-fine { text-align: center; font-style: italic; color: var(--ink-soft); font-size: .92rem; margin-top: 8px; text-wrap: balance; }
+.reg.enter > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+.reg.enter > :nth-child(2) { animation-delay: .12s; }
+.reg.enter > :nth-child(3) { animation-delay: .24s; }
+.reg.enter > :nth-child(n+4) { animation-delay: .36s; }
+.yay .summary { margin-top: 14px; width: 100%; box-sizing: border-box; padding: 12px 14px; border-radius: 14px; background: #F3EFFF; box-shadow: inset 0 0 0 1px var(--gold-line); text-align: left; font-size: 1rem; line-height: 1.5; font-variant-numeric: lining-nums; }
+.yay .summary b { font-family: var(--f-caps); font-weight: 400; text-transform: uppercase; letter-spacing: .16em; font-size: .64rem; color: var(--gold-deep); }
+
 #gate.leaving { animation: leave .45s cubic-bezier(.4,0,.2,1) both; }
 @keyframes leave { to { opacity: 0; transform: translateY(-10px) scale(.98); filter: blur(3px); } }
 .gate .rev-in { animation: rise 1s cubic-bezier(.2,.7,.2,1) both; animation-delay: calc(var(--i, 0) * 120ms + 300ms); }
@@ -403,7 +447,7 @@ h1, h2 { margin: 0; font-weight: 400; }
         <p class="caps rev" style="--i:3">Dear</p>
         <h1 class="guest" id="guest-out" tabindex="-1">Guest</h1>
         <p class="invited rev" style="--i:5">you are invited</p>
-        <p class="hosts rev" style="--i:6"><strong>Ayaz Ahmed Khan &amp; Musarrat Ayaz</strong><em>request the pleasure of your presence at the engagement of their daughter</em></p>
+        <p class="hosts rev" style="--i:6"><strong>Ayaz Ahmed Khan &amp; Musarrat Ayaz</strong><em>request the pleasure of your presence at the engagement ceremony of their daughter</em></p>
         <div class="pair rev" style="--i:7">
           <p class="nm">Sabeen Khan</p>
           <p class="with">with</p>
@@ -500,6 +544,40 @@ h1, h2 { margin: 0; font-weight: 400; }
           <p class="escape" id="escape" hidden></p>
         </div>
 
+        <form class="rsvp-panel reg" id="reg" hidden novalidate aria-labelledby="reg-title">
+          <div class="reg-head">
+            <p class="caps">Guest registration</p>
+            <h2 class="reg-title" id="reg-title">Who's coming with you?</h2>
+          </div>
+          <div class="reg-note" role="note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5L4.5 5.5V11C4.5 15.9 7.7 19.9 12 21.5C16.3 19.9 19.5 15.9 19.5 11V5.5L12 2.5Z"/><path d="M8.8 11.8L11 14L15.4 9.6"/></svg>
+            <p><b>Important, please read</b>This is needed for registration. The hall's security will only let in guests whose names are on our list, so please write the name of everyone coming with you, <strong>first names at least</strong>.</p>
+          </div>
+          <fieldset>
+            <legend>Guest names</legend>
+            <ol class="names" id="names"></ol>
+            <p class="err" id="names-err" hidden>Please write at least one first name.</p>
+            <button class="add" id="add-guest" type="button">+ Add another guest</button>
+          </fieldset>
+          <fieldset>
+            <legend>Will you be driving?</legend>
+            <p class="help">If you are, share your number plate and we'll arrange parking for you.</p>
+            <div class="seg">
+              <input type="radio" name="drive" id="drive-yes" value="yes"><label for="drive-yes">Yes, driving</label>
+              <input type="radio" name="drive" id="drive-no" value="no"><label for="drive-no">Not driving</label>
+            </div>
+            <p class="err" id="drive-err" hidden>Please choose whether you'll be driving.</p>
+            <div class="plate-wrap" id="plate-wrap" hidden>
+              <label class="lbl" for="plate">Car number plate</label>
+              <input class="txt plate" id="plate" type="text" maxlength="60" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="e.g. WXY 1234">
+              <p class="help">Coming in more than one car? Separate the plates with commas.</p>
+              <p class="err" id="plate-err" hidden>Please write your car's number plate so we can arrange parking.</p>
+            </div>
+          </fieldset>
+          <a class="btn pink reg-send" id="reg-send" href="https://wa.me/" target="_blank" rel="noopener">Send my registration</a>
+          <p class="reg-fine">This opens WhatsApp with your details filled in. Just press send.</p>
+        </form>
+
         <div class="yay" id="yay" hidden aria-live="polite">
           <div class="yay-sketch">
             <div class="drawing" data-sketch="couple" aria-hidden="true" style="--dur:2.2s"></div>
@@ -509,9 +587,10 @@ h1, h2 { margin: 0; font-weight: 400; }
           </div>
           <h2 class="foil">We knew you would be part of this!</h2>
           <p class="msg" id="yay-msg"></p>
-          <p class="nudge" id="wa-nudge">WhatsApp didn't open? One tap so Areej can count you in</p>
-          <a class="btn pink" id="wa-yes" target="_blank" rel="noopener" href="https://wa.me/">Send my RSVP on WhatsApp</a>
-          <p class="small" id="wa-fallback" hidden>Areej will be counting on you!</p>
+          <p class="summary" id="reg-summary"></p>
+          <p class="nudge" id="wa-nudge">You're on the list once Areej gets your WhatsApp. Didn't send? Tap below</p>
+          <a class="btn pink" id="wa-yes" target="_blank" rel="noopener" href="https://wa.me/">Send my registration</a>
+          <button class="link" id="edit-reg" type="button">Edit my details</button>
         </div>
 
         <div class="sign rev" style="--i:6">
@@ -599,7 +678,7 @@ h1, h2 { margin: 0; font-weight: 400; }
   // Calendar link
   const cal = new URL('https://calendar.google.com/calendar/render');
   cal.searchParams.set('action', 'TEMPLATE');
-  cal.searchParams.set('text', 'Engagement of Sabeen & Luqman');
+  cal.searchParams.set('text', 'Engagement ceremony of Sabeen & Luqman');
   cal.searchParams.set('dates', '20261125T100000Z/20261125T140000Z');
   cal.searchParams.set('details', 'Engagement of Sabeen Khan with Luqman Ahmad Adeel. Engagement ceremony 6:00 pm, dinner 7:00 pm.');
   cal.searchParams.set('location', 'Lakepark Residence (Residensi Utara 1), 68100 Selayang, Selangor, Malaysia');
@@ -622,8 +701,8 @@ h1, h2 { margin: 0; font-weight: 400; }
     if (s && s === s.toLowerCase()) s = s.replace(/(^|[\s'-])(\p{L})/gu, (m, a, b) => a + b.toUpperCase());
     return s;
   }
+  // With no number set, wa.me opens WhatsApp's contact picker so the guest can choose Areej.
   const waLink = (text) => 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(text);
-  const yesText = () => `Assalamu alaikum Areej! This is ${guestName}. Yes, I'll be at Sabeen & Luqman's engagement on Wednesday 25 November at 6 pm, InshaAllah. Can't wait!`;
 
   // ---------------- Steps ----------------
   function animateIn(el) {
@@ -688,9 +767,8 @@ h1, h2 { margin: 0; font-weight: 400; }
   }
   function setupRsvp() {
     resetNo();
-    if (WHATSAPP) { yes.href = waLink(yesText()); yes.target = '_blank'; yes.rel = 'noopener'; yes.removeAttribute('role'); }
-    else { yes.removeAttribute('target'); yes.setAttribute('href', '#rsvp'); }
-    yay.hidden = true; yay.classList.remove('show'); ask.hidden = false;
+    resetReg();
+    yay.hidden = true; yay.classList.remove('show'); reg.hidden = true; ask.hidden = false;
   }
   function dodge(e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
@@ -729,7 +807,7 @@ h1, h2 { margin: 0; font-weight: 400; }
     if (WHATSAPP) {
       esc.append('Okay, okay. If you truly cannot make it, ');
       const a = document.createElement('a');
-      a.href = waLink(`Assalamu alaikum Areej, this is ${guestName}. I'm so sorry, I won't be able to make it to Sabeen & Luqman's engagement on 25 November. Sending lots of love and duas to the couple.`);
+      a.href = waLink(`Assalamu alaikum Areej, this is ${guestName}. I'm so sorry, I won't be able to make it to Sabeen & Luqman's engagement ceremony on 25 November. Sending lots of love and duas to the couple.`);
       a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'let Areej know here';
       esc.append(a, '.');
     } else esc.textContent = 'Okay, okay. If you truly cannot make it, please let Areej know.';
@@ -741,23 +819,120 @@ h1, h2 { margin: 0; font-weight: 400; }
   no.addEventListener('click', dodge);
   no.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') dodge(e); });
 
-  function showYay(animate) {
-    ask.hidden = true; yay.hidden = false;
+  // ---------------- Guest registration (security list + parking) ----------------
+  const reg = $('#reg'), namesList = $('#names'), addGuest = $('#add-guest'), sendBtn = $('#reg-send');
+  const plateWrap = $('#plate-wrap'), plate = $('#plate');
+  const MAX_GUESTS = 15;
+  const X_ICON = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 2L10 10M10 2L2 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  let rowSeq = 0, tried = false;
+
+  function renumber() {
+    const rows = [...namesList.children];
+    rows.forEach((li, i) => {
+      li.querySelector('label').textContent = i === 0 ? 'Your name' : `Guest ${i + 1} name`;
+      const rm = li.querySelector('.rm');
+      rm.disabled = rows.length === 1; rm.setAttribute('aria-label', `Remove guest ${i + 1}`);
+    });
+    addGuest.disabled = rows.length >= MAX_GUESTS;
+    addGuest.textContent = rows.length >= MAX_GUESTS ? `Up to ${MAX_GUESTS} guests` : '+ Add another guest';
+  }
+  function addGuestRow(value, focus) {
+    if (namesList.children.length >= MAX_GUESTS) return;
+    const id = 'g-' + (++rowSeq);
+    const li = document.createElement('li');
+    li.innerHTML = `<label class="sr" for="${id}"></label><input class="txt" id="${id}" type="text" maxlength="40" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="next" placeholder="First name at least"><button class="rm" type="button">${X_ICON}</button>`;
+    li.querySelector('input').value = value || '';
+    namesList.appendChild(li); renumber();
+    if (focus) li.querySelector('input').focus();
+  }
+  namesList.addEventListener('click', (e) => {
+    const rm = e.target.closest('.rm'); if (!rm || rm.disabled) return;
+    const li = rm.closest('li'), next = li.nextElementSibling || li.previousElementSibling;
+    li.remove(); renumber(); changed();
+    if (next) next.querySelector('input').focus();
+  });
+  addGuest.addEventListener('click', () => addGuestRow('', true));
+
+  function regData() {
+    const names = [...namesList.querySelectorAll('input')].map((i) => clean(i.value)).filter(Boolean);
+    const drive = (reg.querySelector('input[name="drive"]:checked') || {}).value || '';
+    const plates = drive === 'yes' ? plate.value.split(',').map((p) => p.replace(/\s+/g, ' ').trim().toUpperCase()).filter(Boolean) : [];
+    return { names, drive, plates };
+  }
+  function regText(d) {
+    const lines = [
+      `Assalamu alaikum Areej! This is ${guestName}. Yes, I'll be at Sabeen & Luqman's engagement ceremony on Wednesday 25 November at 6 pm, InshaAllah.`,
+      '', `Guest registration (${d.names.length} ${d.names.length === 1 ? 'person' : 'people'}):`
+    ];
+    d.names.forEach((n, i) => lines.push(`${i + 1}. ${n}`));
+    lines.push('', d.drive === 'yes' ? `Driving: Yes. Car plate${d.plates.length > 1 ? 's' : ''}: ${d.plates.join(', ')}` : 'Driving: No');
+    return lines.join('\n');
+  }
+  function validate(focus) {
+    const d = regData(); let first = null;
+    const nErr = !d.names.length;
+    $('#names-err').hidden = !nErr;
+    namesList.querySelectorAll('input').forEach((i) => i.setAttribute('aria-invalid', nErr ? 'true' : 'false'));
+    if (nErr) first = namesList.querySelector('input');
+    const dErr = !d.drive;
+    $('#drive-err').hidden = !dErr;
+    if (dErr) first = first || $('#drive-yes');
+    const pErr = d.drive === 'yes' && !d.plates.length;
+    $('#plate-err').hidden = !pErr; plate.setAttribute('aria-invalid', pErr ? 'true' : 'false');
+    if (pErr) first = first || plate;
+    if (first && focus) { first.focus({ preventScroll: true }); first.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }); }
+    return first ? null : d;
+  }
+  function changed() {
+    plateWrap.hidden = regData().drive !== 'yes';
+    sendBtn.href = waLink(regText(regData()));
+    if (tried) validate(false);
+  }
+  reg.addEventListener('input', changed);
+  reg.addEventListener('change', changed);
+  reg.addEventListener('submit', (e) => { e.preventDefault(); if (validate(true)) sendBtn.focus(); });
+
+  function resetReg() {
+    tried = false; namesList.innerHTML = ''; plate.value = ''; plateWrap.hidden = true;
+    reg.querySelectorAll('input[name="drive"]').forEach((r) => { r.checked = false; });
+    reg.querySelectorAll('.err').forEach((p) => { p.hidden = true; });
+  }
+  function showReg() {
+    ask.hidden = true; yay.hidden = true; yay.classList.remove('show'); reg.hidden = false;
+    if (!namesList.children.length) addGuestRow(guestName);
+    changed();
+    if (!reduced) { reg.classList.remove('enter'); void reg.offsetWidth; reg.classList.add('enter'); petals.burst(); }
+    setTimeout(() => reg.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' }), 60);
+  }
+  sendBtn.addEventListener('click', (e) => {
+    tried = true;
+    const d = validate(true);
+    if (!d) { e.preventDefault(); return; }
+    sendBtn.href = waLink(regText(d));   // read when the tap navigates, after this handler
+    put('rsvp:' + guestName, JSON.stringify(d));
+    showYay(!reduced, d);
+    setTimeout(() => yay.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }), 60);
+  });
+  $('#edit-reg').addEventListener('click', showReg);
+
+  function showYay(animate, d) {
+    ask.hidden = true; reg.hidden = true; yay.hidden = false;
     const first = guestName.split(' ')[0];
     $('#yay-msg').textContent = `Yay, ${first}! Sabeen and Luqman can't wait to celebrate with you. Bring your biggest smile and an empty tummy, because dinner is at 7.`;
-    const wa = $('#wa-yes');
-    if (WHATSAPP) { wa.href = waLink(yesText()); wa.hidden = false; $('#wa-nudge').hidden = false; $('#wa-fallback').hidden = true; }
-    else { wa.hidden = true; $('#wa-nudge').hidden = true; $('#wa-fallback').hidden = false; }
+    const sum = $('#reg-summary'); sum.textContent = '';
+    const line = (label, text) => { const b = document.createElement('b'); b.textContent = label; sum.append(b, document.createElement('br'), text); };
+    line(`Guests (${d.names.length})`, d.names.join(', '));
+    sum.append(document.createElement('br'));
+    line('Parking', d.drive === 'yes' ? d.plates.join(', ') : 'Not driving');
+    $('#wa-yes').href = waLink(regText(d));
     if (animate) {
       yay.classList.remove('show'); void yay.offsetWidth; yay.classList.add('show');
       play(yay.querySelector('.drawing')); petals.burst(true);
     } else yay.classList.add('show');
   }
   yes.addEventListener('click', (e) => {
-    if (!WHATSAPP) e.preventDefault();   // with a number set, the same tap opens WhatsApp in a new tab
-    put('rsvp:' + guestName, 'yes');
-    showYay(!reduced);
-    setTimeout(() => yay.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' }), 60);
+    e.preventDefault();
+    showReg();
   });
 
   // ---------------- Painted flowers (pastel rainbow) ----------------
